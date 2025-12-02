@@ -1,0 +1,18 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.mySlides {
+  display: none;
+}
+
+/* Custom theme colors */
+.w3-theme-blue {
+  color: #fff !important;
+  background-color: #1e90ff !important;
+} /* Gumball blue */
+
+.w3-theme-orange {
+  color: #fff !important;
+  background-color: #ff8c00 !important;
+} /* Darwin orange */
