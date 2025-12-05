@@ -7,17 +7,11 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    body {font-family: "Lato", sans-serif}
-    .mySlides {display: none}
-    /* Custom theme colors */
-    .w3-theme-blue {color:#fff !important; background-color:#1E90FF !important;} /* Gumball blue */
-    .w3-theme-orange {color:#fff !important; background-color:#FF8C00 !important;} /* Darwin orange */
-  </style>
+  <link rel="stylesheet" href= "style.css"> 
+ 
 </head>
 <body>
 
-<!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-theme-blue w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -37,7 +31,6 @@
   </div>
 </div>
 
-<!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-theme-blue w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="#show" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">THE SHOW</a>
   <a href="#adventures" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ADVENTURES</a>
@@ -45,10 +38,8 @@
   <a href="#gallery" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">GALLERY</a>
 </div>
 
-<!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-  <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
     <img src="https://i.ytimg.com/vi/m29gJmPHY5w/maxresdefault.jpg" style="width:100%">
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
@@ -71,28 +62,59 @@
     </div>
   </div>
 
-  <!-- The Show Section -->
   <section class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="show">
     <h2 class="w3-wide">THE AMAZING WORLD OF GUMBALL</h2>
     <p class="w3-opacity"><i>Adventures in Elmore</i></p>
     <p class="w3-justify">The Amazing World of Gumball is a British-American animated series created by Ben Bocquelet for Cartoon Network. It follows the misadventures of 12-year-old cat Gumball Watterson, his adoptive goldfish brother Darwin, and their family in the fictional city of Elmore. Accompanied by bizarre friends and family, Gumball's schemes often lead to hilarious chaos. The show blends 2D, 3D, and live-action for a unique style, running from 2011 to 2019 with 240 episodes.</p>
     <div class="w3-row w3-padding-32">
+      
       <div class="w3-third">
         <p>Gumball Watterson</p>
-        <img src="https://i.pinimg.com/736x/b6/47/45/b647459f8008966a1d88a39a3d461124.jpg" class="w3-round w3-margin-bottom" alt="Gumball" style="width:60%">
+        <img src="https://i.pinimg.com/736x/b6/47/45/b647459f8008966a1d88a39a3d461124.jpg" 
+             class="w3-round w3-margin-bottom character-image" 
+             alt="Gumball" 
+             style="width:60%"
+             onclick="showCharacterInfo('Gumball Watterson', 'The 12-year-old light blue cat, the eldest sibling. He is naïve, optimistic, and often causes chaos with his crazy schemes.')"
+        >
       </div>
+      
       <div class="w3-third">
         <p>Darwin Watterson</p>
-        <img src="https://i.pinimg.com/736x/27/78/63/2778633f5162cf75528d579a08cf3f68.jpg" class="w3-round w3-margin-bottom" alt="Darwin" style="width:60%">
+        <img src="https://i.pinimg.com/736x/27/78/63/2778633f5162cf75528d579a08cf3f68.jpg" 
+             class="w3-round w3-margin-bottom character-image" 
+             alt="Darwin" 
+             style="width:60%"
+             onclick="showCharacterInfo('Darwin Watterson', 'Gumball\'s adopted 10-year-old orange goldfish brother. He is sweet, loyal, and often serves as the voice of reason for Gumball.')"
+        >
       </div>
+      
       <div class="w3-third">
         <p>Anais Watterson</p>
-        <img src="https://i.pinimg.com/736x/6d/3e/45/6d3e45d2d1f748619d4a50683cfc6df5.jpg" class="w3-round w3-margin-bottom" alt="Anais" style="width:70%">
+        <img src="https://i.pinimg.com/736x/6d/3e/45/6d3e45d2d1f748619d4a50683cfc6df5.jpg" 
+             class="w3-round w3-margin-bottom character-image" 
+             alt="Anais" 
+             style="width:70%"
+             onclick="showCharacterInfo('Anais Watterson', 'The 4-year-old pink rabbit and the genius of the family. She is the smartest in Elmore but often gets dragged into Gumball and Darwin\'s antics.')"
+        >
       </div>
     </div>
   </section>
 
-  <!-- The Adventures Section (repurposed Tour) -->
+  <div id="characterModal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4" style="max-width: 600px;">
+      <header class="w3-container w3-theme-blue w3-center w3-padding-32">
+        <span onclick="document.getElementById('characterModal').style.display='none'" class="w3-button w3-theme-blue w3-xlarge w3-display-topright">×</span>
+        <h2 class="w3-wide"><i class="fa fa-user w3-margin-right"></i><span id="characterName"></span></h2>
+      </header>
+      <div class="w3-container w3-padding-16">
+        <p id="characterDescription" class="w3-large w3-center"></p>
+        <div class="w3-center w3-padding-16">
+            <button class="w3-button w3-red w3-section" onclick="document.getElementById('characterModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section class="w3-theme-orange" id="adventures">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">ADVENTURES (EPISODES)</h2>
@@ -134,7 +156,6 @@
     </div>
   </section>
 
-  <!-- Episode Modal (repurposed Ticket Modal) -->
   <div id="episodeModal" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-theme-blue w3-center w3-padding-32">
@@ -153,7 +174,6 @@
     </div>
   </div>
 
-  <!-- The Contact Section -->
   <section class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
     <h2 class="w3-wide w3-center">CONTACT</h2>
     <p class="w3-opacity w3-center"><i>Fan? Drop a note to the Wattersons!</i></p>
@@ -180,7 +200,6 @@
     </div>
   </section>
 
-  <!-- Gallery Section (Added for checklist) -->
   <section class="w3-container w3-content w3-padding-64" style="max-width:800px" id="gallery">
     <h2 class="w3-wide w3-center">GALLERY</h2>
     <p class="w3-opacity w3-center"><i>Iconic moments from Elmore</i></p>
@@ -206,13 +225,10 @@
     </div>
   </section>
 
-<!-- End Page Content -->
 </div>
 
-<!-- Image of location/map (repurposed as Elmore scene) -->
 <img src="https://i.ytimg.com/vi/UbDgwmzIofE/maxresdefault.jpg" class="w3-image w3-greyscale-min" style="width:100%" alt="Elmore Map">
 
-<!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
   <i class="fa fa-facebook-official w3-hover-opacity"></i>
   <i class="fa fa-instagram w3-hover-opacity"></i>
@@ -224,7 +240,7 @@
 </footer>
 
 <script>
-// Automatic Slideshow - change image every 4 seconds
+
 var myIndex = 0;
 carousel();
 
@@ -240,7 +256,6 @@ function carousel() {
   setTimeout(carousel, 4000);    
 }
 
-// Used to toggle the menu on small screens when clicking on the menu button
 function myFunction() {
   var x = document.getElementById("navDemo");
   if (x.className.indexOf("w3-show") == -1) {
@@ -248,6 +263,15 @@ function myFunction() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+
+function showCharacterInfo(name, description) {
+  
+    document.getElementById('characterName').textContent = name;
+    document.getElementById('characterDescription').textContent = description;
+    
+   
+    document.getElementById('characterModal').style.display = 'block';
 }
 </script>
 
